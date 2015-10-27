@@ -2,7 +2,7 @@ WDWNTNowTasks is a Python project for querying the WDWNT Now API as scheduled ta
 
 # Usage
 
-Before executing, be sure to run the following:
+Before executing, be sure to run the following:<br>
 1. `sudo apt-get update && sudo apt-get upgrade`<br>
 2. `sudo apt-get install python-setuptools python-dev libffi-dev`<br>
 3. `sudo easy_install pip`<br>
