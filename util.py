@@ -7,14 +7,14 @@ class Util(object):
     @staticmethod
     def print_json(response):
         try:
-            print ("{} {}".format(response.status_code, response.reason))
-            print (json.dumps(json.loads(response.text), indent=2))
+            print "{} {}".format(response.status_code, response.reason)
+            print json.dumps(json.loads(response.text), indent=2)
         except ValueError as e:
-            print (str(e))
+            print str(e)
 
     @staticmethod
     def print_response(response):
-        print ("{} {}".format(response.status_code, response.reason))
+        print "{} {}".format(response.status_code, response.reason)
 
     @staticmethod
     def parse_args(args):

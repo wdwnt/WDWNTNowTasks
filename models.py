@@ -6,5 +6,5 @@ from http import Http
 class Attraction(object):
 	@staticmethod
 	def get(args):
-		r = Http.get("/attraction/get/" + args[1])
-		Util.print_json(r)
+		r = Http.get("/attraction/get/" + args[2], True)
+		return "{} {} minutes".format(args[1], r.json()['PostedWaitTime'])

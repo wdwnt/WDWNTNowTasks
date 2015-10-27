@@ -11,9 +11,9 @@ def main():
 def route(commands):
     action = commands[0]
     if action == "waittime":
-        Attraction.get(commands)
+        print Attraction.get(commands)
     else:
-        print("INVALID COMMAND")
+        print "INVALID COMMAND"
 
 def args(commands):
     if len(commands) > 1:
