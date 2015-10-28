@@ -1,6 +1,4 @@
-import json
-from datetime import datetime
-from util import Util
+from comm import Comm
 from http import Http
 
 class Attraction(object):
@@ -10,7 +8,14 @@ class Attraction(object):
 		res = Http.get(url, True)
 		json = res.json()
 		
+		status = ''
+		
 		if json['ShortWaitTimeDisplay'] == 'Closed':
-			return attraction['closed_message']
+			status = attraction['closed_message']
 		else:
-			return "{} {} minutes".format(attraction['open_message'], json['PostedWaitTime'])
+			status = "{} {} minutes".format(attraction['open_message'], json['PostedWaitTime'])
+			
+		if 'twitter_cfg' in attraction:
+			Comm.tweet(status, attraction['twitter_cfg'])
+		else:
+			print status
