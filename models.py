@@ -5,6 +5,12 @@ from http import Http
 
 class Attraction(object):
 	@staticmethod
-	def get(args):
-		r = Http.get("/attraction/get/" + args[2], True)
-		return "{} {} minutes".format(args[1], r.json()['PostedWaitTime'])
+	def get(attraction):
+		url = "{}{}".format("/attraction/get/", attraction['id'])
+		res = Http.get(url, True)
+		json = res.json()
+		
+		if json['ShortWaitTimeDisplay'] == 'Closed':
+			return attraction['closed_message']
+		else:
+			return "{} {} minutes".format(attraction['open_message'], json['PostedWaitTime'])

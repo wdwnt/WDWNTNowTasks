@@ -12,7 +12,9 @@ Before executing, be sure to run the following:<br>
 
 ## Wait Times
 
-python main.py 'waittime' 'Current wait before the next expedition:' 26068
+`python waittime.py`
+
+See config.py for examples on how to configure wait time queries.
 
 returns
 > "Current wait before next expedition: 40 minutes"
